@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./grocery.css";
 
 export default function Grocery(props) {
