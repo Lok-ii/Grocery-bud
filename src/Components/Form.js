@@ -6,6 +6,11 @@ export default function Form() {
   let [groceryInput, setGrocery] = useState("")
   let [groceryList, setGroceryList] = useState([]);
 
+  const onRemove = (itemId)=>{
+    let removedList = groceryList.filter((_, idx)=> idx != itemId);
+    setGroceryList(removedList);
+  }
+
   // Load subjects from local storage on component mount
   useEffect(() => {
     const storedGrocery = JSON.parse(localStorage.getItem("groceryList")) || [];
@@ -44,6 +49,8 @@ export default function Form() {
             <Grocery
               key={idx}
               grocery={ele.groceryInput}
+              id={idx}
+              onRemove={onRemove}
             />
           );
         })}

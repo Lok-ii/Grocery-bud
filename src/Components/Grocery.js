@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./grocery.css";
 
 export default function Grocery(props) {
-  const removeItem = () => {
-    // setCurrentHours(Number(hours) + 1);
+  const removeItem = (e) => {
+    props.onRemove(e.target.id);
   };
 
   return (
@@ -15,7 +15,8 @@ export default function Grocery(props) {
         </label>
       </div>
 
-      <button className="remove" onClick={removeItem}>
+      <button className="remove"
+      id={props.idx} onClick={removeItem}>
         Delete
       </button>
     </div>
