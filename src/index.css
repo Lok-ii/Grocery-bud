@@ -27,3 +27,9 @@ body {
   /* align-items: center; */
   padding-top: 10rem;
 }
+
+@media screen and (max-width: 1025px){
+  #root{
+    padding-top: 0;
+  }
+}

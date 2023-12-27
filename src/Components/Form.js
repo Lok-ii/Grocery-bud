@@ -9,10 +9,14 @@ export default function Form(props) {
   let [groceryList, setGroceryList] = useState([]);
 
 
-  const showToastMessage = (groceryInput) => {
+  const showToastMessage = () => {
     if (groceryInput !== "") {
       toast.success("Item added to the list!", {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }else{
+      toast.error("Please enter an item!", {
+        position: toast.POSITION.TOP_RIGHT,
       });
     }
   };
@@ -30,7 +34,7 @@ export default function Form(props) {
 
   const addCard = () => {
     if (groceryInput !== "") {
-      showToastMessage(groceryInput);
+      showToastMessage();
       setGroceryList((prevGroceryList) => {
         const updatedList = [...prevGroceryList, { groceryInput }];
         // Save to local storage
@@ -38,6 +42,8 @@ export default function Form(props) {
 
         return updatedList;
       });
+    }else{
+      showToastMessage();
     }
     setGrocery("");
   };

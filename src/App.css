@@ -21,3 +21,9 @@
   color: black;
 }
 
+
+@media screen and (max-width: 1025px){
+    .App{
+      width: 90%;
+    }
+}
